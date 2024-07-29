@@ -1,0 +1,249 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mortgage Calculator</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+ 
+
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="text-center mb-4">Mortgage Calculator</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8">
+          <div class="border p-4 shadow rounded-3">
+            <div class="mt-3 mb-3">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-6 order-md-2">
+                    <img src="https://img.freepik.com/free-photo/black-professional-black-basketball-player-action-basketball-court_613910-553.jpg?t=st=1711443875~exp=1711447475~hmac=84eb897e118306829f17c4f2304fd0fd8c8f57dff25781d9487af0c261c95867&w=740" class="img-fluid" alt="">
+                  </div>
+                  <div class="col-md-6 order-md-1">
+                    <p class="lead">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident eligendi asperiores ullam dolor quos impedit eos voluptatem voluptatibus nam, corporis quis eveniet iusto, consequuntur voluptas doloribus exercitationem recusandae delectus veniam modi nostrum omnis nemo quia id harum. Nobis deleniti, quasi porro obcaecati placeat id cupiditate temporibus cumque. Debitis, ratione totam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam consequuntur tenetur quasi ratione, voluptatem non rerum dolorum modi, laudantium dolore tempora animi officia aspernatur neque?
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <hr>
+            </div>
+            <form id="mortgageForm" class="container">
+              <div class="row mb-3">
+                  <div class="col-md-6">
+                      <label for="homePrice" class="form-label">Home Price ($)</label>
+                      <input type="number" class="form-control" id="homePrice" required value="400000">
+                  </div>
+                  <div class="col-md-6">
+                      <label for="downPayment" class="form-label">Down Payment</label>
+                      <input type="number" class="form-control" id="downPayment" required value="100000">
+                  </div>
+              </div>
+              <div class="row mb-3">
+                  <div class="col-md-6">
+                      <label for="loanTerm" class="form-label">Loan Term (in years)</label>
+                      <input type="number" class="form-control" id="loanTerm" required value="30">
+                  </div>
+                  <div class="col-md-6">
+                      <label for="interestRate" class="form-label">Interest Rate (%)</label>
+                      <input type="number" class="form-control" id="interestRate" required value="12">
+                  </div>
+              </div>
+              <div class="row mb-3">
+                  <div class="col-md-6">
+                      <label for="startDate" class="form-label">Start Date</label>
+                      <input type="date" class="form-control" id="startDate" required value="2024-03-21">
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-check mb-3">
+                          <input type="checkbox" class="form-check-input" id="additionalCosts">
+                          <label class="form-check-label" for="additionalCosts">Additional Costs</label>
+                      </div>
+                  </div>
+              </div>
+              <div id="additionalCostsInputs" style="display: none;">
+                  <div class="row mb-3">
+                      <div class="col-md-6">
+                          <label for="propertyTaxes" class="form-label">Property Taxes</label>
+                          <input type="number" class="form-control" id="propertyTaxes" value="2900">
+                      </div>
+                      <div class="col-md-6">
+                          <label for="homeInsurance" class="form-label">Home Insurance</label>
+                          <input type="number" class="form-control" id="homeInsurance" value="4300">
+                      </div>
+                  </div>
+                  <div class="row mb-3">
+                      <div class="col-md-6">
+                          <label for="pmiInsurance" class="form-label">PMI Insurance</label>
+                          <input type="number" class="form-control" id="pmiInsurance" value="2222">
+                      </div>
+                      <div class="col-md-6">
+                          <label for="hoaFee" class="form-label">HOA Fee</label>
+                          <input type="number" class="form-control" id="hoaFee" value="300">
+                      </div>
+                  </div>
+                  <div class="row mb-3">
+                      <div class="col-md-6">
+                          <label for="otherCosts" class="form-label">Other Costs</label>
+                          <input type="number" class="form-control" id="otherCosts" value="4000">
+                      </div>
+                  </div>
+              </div>
+              <button type="submit" class="btn btn-primary">Calculate</button>
+          </form>
+          
+          </div>
+        </div>
+        <div class="col-md-4">
+                     
+          <div
+            class="w-100 p-2 align-items-center justify-content-center shadow rounded-2 border responsive"
+          >
+            <div
+              class="w-100 "
+            >
+            <!-- graph -->
+            <div class="mb-3">
+              
+                <div class=" mb-3 mt-3 ">
+                <h2 class="text-center fw-bold ">RESULT SHOW HERE</h2>
+              </div>
+                <!-- graph her -->
+               <div class="overflow-hidden">
+                <div class="d-flex align-items-center justify-content-center ">
+                  <div id="piechart" width="100%" height="100%"></div>
+                 
+              </div>
+              
+                
+              
+              </div>
+            </div>
+            
+              <div class="mb-3 mt-5 w-100 justify-content-center">
+               <div class=" table-responsive  ">
+                <table class=" table table-striped border">
+                  <tr class="bg-primary">
+                    <td class="align-items-center p-3 text-white">
+                      <h5>Monthly Payment:</h5>
+                    </td>
+                    <td colspan="2" class="align-items-center p-3 text-white">
+                      <h4 id="monthlprice"></h4>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th></th>
+                    <th>Monthly</th>
+                    <th>Total</th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <h5>Mortgage Payment</h5>
+                    </td>
+                    <td><h6 id="monthlypay"></h6></td>
+                    <td><h6 id="totalpay"></h6></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p><h5>Property tax:</h5></p>
+                    </td>
+                    <td id="tax"></td>
+                    <td id="yeartax"></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <h5>Home Insurence:</h5>
+                    </td>
+                    <td id="homeIns"></td>
+                    <td id="yearlyInsurenc"></td>
+                  </tr>
+                  <tr>
+                    <td><h5>HOA</h5></td>
+                    <td id="monthlyhoa"></td>
+                    <td id="yearlyhoa"></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <h5>Other Costs:</h5>
+                    </td>
+                    <td id="mothyOthercost"></td>
+                    <td id="yearlyOthercost"></td>
+                  </tr>
+                  <tr>
+                    <td><h5>total payments out </h5>  </td>
+                    <td id="monthlytotalpayments"></td>
+                    <td id="yearlytotalpayment"></td>
+                  </tr>
+                </table>
+               </div>
+                <div
+                  class="w-100 mt-5 d-flex align-items-center justify-content-center"
+                >
+
+                
+                
+              
+                
+                  <!-- graph end -->
+                </div>
+              </div>
+            </div>
+            <div
+              class="w-100 align-items-center justify-content-center d-flex mt-4"
+            >
+              <div class="mb-3 box-shadow">
+                <div id="result" class="mb-3   table-responsive">
+                  <table class="table table-bordered table-striped">
+                    <tr>
+                      <td class="bg-secondary text-white"><strong>House Price:</strong></td>
+                      <td id="housePrice" class="bg-secondary  border border-secondary"></td>
+                    </tr>
+                    <tr>
+                      <td ><strong>Loan Amount:</strong></td>
+                      <td id="principleAmount" class="bg-light principleAmount border border-secondary"></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Down Payment:</strong></td>
+                      <td id="DownPayment" class="bg-light border border-secondary"></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>Total of <span id="countPayment"></span> Mortgage Payments:</strong>
+                      </td>
+                      <td id="totalPayments" class="bg-light border border-secondary"></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Total Interest:</strong></td>
+                      <td id="totalInterest" class="bg-light border border-secondary"></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Mortgage Payoff Date:</strong></td>
+                      <td id="payoffDate" class="bg-light border border-secondary"></td>
+                    </tr>
+                  </table>
+                  
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+
+  </body>
+</html>

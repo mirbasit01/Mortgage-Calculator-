@@ -1,0 +1,51 @@
+/** @format */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+#dataContainer {
+  display: none;
+}
+/* garph code her */
+.mcpline {
+  stroke: white;
+  stroke-width: 1;
+}
+.mcplegend {
+  font-size: 13;
+  font-family: arial, helvetica, sans-serif;
+  fill: #54667a;
+}
+.mcplabel {
+  fill: #fff;
+  stroke-width: 2;
+  font-family: arial, helvetica, sans-serif;
+  font-size: 12px;
+  paint-order: stroke;
+  dominant-baseline: middle;
+  text-anchor: middle;
+}
+#ttpiett {
+  background: cornsilk;
+  opacity: 0.92;
+  border: 1px solid #11233a;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 13px;
+  font-family: arial, helvetica, sans-serif;
+  color: #fff;
+}
+#ttpiett div {
+  font-size: 13px;
+  color: #fff;
+}
+#result {
+  width: 100%;
+}
